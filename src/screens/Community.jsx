@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 
-const community = () => {
+const Community = () => {
   return (
     <View style={styles.container}>
       <Text>community</Text>
@@ -9,7 +9,7 @@ const community = () => {
   );
 };
 
-export default community;
+export default Community;
 
 const styles = StyleSheet.create({
   container: {

@@ -6,14 +6,22 @@ import { MaterialCommunityIcons } from "react-native-vector-icons";
 //--//
 
 // Import Files //
-import Chat from "./screens/chat";
+import Chat from "./screens/Chat";
+import Calls from "./screens/Calls";
+import Status from "./screens/Status";
+import Community from "./screens/Community";
 //--//
+
+const Tab = createMaterialTopTabNavigator();
 
 const Navigation = () => {
   return (
-    <View style={styles.container}>
-      <Text>NSviNavi</Text>
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="Community" component={Community} />
+      <Tab.Screen name="Chat" component={Chat} />
+      <Tab.Screen name="Status" component={Status} />
+      <Tab.Screen name="Calls" component={Calls} />
+    </Tab.Navigator>
   );
 };
 
