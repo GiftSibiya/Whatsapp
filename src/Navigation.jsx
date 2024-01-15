@@ -16,8 +16,32 @@ const Tab = createMaterialTopTabNavigator();
 
 const Navigation = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Community" component={Community} />
+    <Tab.Navigator
+      initialRouteName="Chat"
+      screenOptions={{
+        tabBarActiveTintColor: "white",
+        tabBarIndicatorStyle: {
+          backgroundColor: "white",
+        },
+        tabBarStyle: {
+          backgroundColor: "#0e806a",
+        },
+      }}
+    >
+      <Tab.Screen
+        name="Community"
+        component={Community}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="account-group"
+              size={24}
+              color={color}
+            />
+          ),
+          tabBarLabelStyle: styles.tabBarLabel,
+        }}
+      />
       <Tab.Screen name="Chat" component={Chat} />
       <Tab.Screen name="Status" component={Status} />
       <Tab.Screen name="Calls" component={Calls} />
@@ -28,10 +52,7 @@ const Navigation = () => {
 export default Navigation;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  tabBarLabel: {
+    display: "none",
   },
 });
