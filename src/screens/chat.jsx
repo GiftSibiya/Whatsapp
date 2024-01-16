@@ -1,10 +1,36 @@
-import { View, Text, StyleSheet } from "react-native";
-import React from "react";
+/// Import Dependencies ///
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+import React, { useState, useEffect } from "react";
+//--//
+
+import DATA from "../data/chatdata";
+import { MaterialCommunityIcons } from "react-native-vector-icons";
 
 const Chat = () => {
+  const [chatData, setChatData] = useEffect(DATA);
+
+  useEffect(() => {
+    setChatData(DATA);
+  });
+
   return (
     <View style={styles.container}>
-      <Text>chat</Text>
+      <FlatList
+        data={chatData}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <View style={styles.chatContainer}>
+            <Image source={item.photos} style={styles.image}></Image>
+          </View>
+        )}
+      />
     </View>
   );
 };
